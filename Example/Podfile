@@ -1,0 +1,11 @@
+platform :ios, '9.0'
+
+target 'Example' do
+  use_frameworks!
+
+  pod 'RxAudioVisual', path: './../'
+  pod 'RxSwift', '~> 3.4'
+  pod 'RxCocoa', '~> 3.4'
+  pod 'SwiftyBeaver'
+
+end
