@@ -16,8 +16,8 @@
 		DEB87B18590F9336BDA1C3DE /* AVAsynchronousKeyValueLoading+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB87AB51C59EF5E27BA0FF2 /* AVAsynchronousKeyValueLoading+Rx.swift */; };
 		FC32E2A01EDFDCB900FF4B10 /* RxAudioVisualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32E29F1EDFDCB900FF4B10 /* RxAudioVisualSpec.swift */; };
 		FC32E2A21EDFDCB900FF4B10 /* RxAudioVisual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9B80F31EDA4D5B0018EE65 /* RxAudioVisual.framework */; };
-		FC32E2AA1EDFDE8300FF4B10 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC32E2A81EDFDE8300FF4B10 /* RxCocoa.framework */; };
-		FC32E2AB1EDFDE8300FF4B10 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC32E2A91EDFDE8300FF4B10 /* RxSwift.framework */; };
+		FC32E2AA1EDFDE8300FF4B10 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC32E2A81EDFDE8300FF4B10 /* RxCocoa.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FC32E2AB1EDFDE8300FF4B10 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC32E2A91EDFDE8300FF4B10 /* RxSwift.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FC32E2AE1EDFDF4000FF4B10 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC32E2AC1EDFDF4000FF4B10 /* Nimble.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		FC32E2AF1EDFDF4000FF4B10 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC32E2AD1EDFDF4000FF4B10 /* Quick.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
@@ -162,6 +162,7 @@
 				DE9B80EF1EDA4D5B0018EE65 /* Frameworks */,
 				DE9B80F01EDA4D5B0018EE65 /* Headers */,
 				DE9B80F11EDA4D5B0018EE65 /* Resources */,
+				FCBC8B3D1EDFE5A5004B9BD0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -245,6 +246,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FCBC8B3D1EDFE5A5004B9BD0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DE9B80EE1EDA4D5B0018EE65 /* Sources */ = {
@@ -397,7 +416,7 @@
 				);
 				INFOPLIST_FILE = RxAudioVisual/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keita.oouchi.RxAudioVisual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,7 +444,7 @@
 				);
 				INFOPLIST_FILE = RxAudioVisual/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keita.oouchi.RxAudioVisual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
