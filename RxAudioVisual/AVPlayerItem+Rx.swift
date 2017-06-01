@@ -69,5 +69,5 @@ extension Reactive where Base: AVPlayerItem {
   public var newErrorLogEntry: Observable<Notification> {
     return NotificationCenter.default.rx.notification(.AVPlayerItemNewErrorLogEntry, object: base)
   }
-  
+
 }

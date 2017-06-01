@@ -1,0 +1,14 @@
+line_length: 145
+disabled_rules:
+  - todo
+excluded:
+  - Pods
+  - Carthage
+included:
+  - RxAudioVisual/
+  - Example/Example/
+variable_name:
+  excluded:
+    - e
+    - usesExternalPlaybackWhileExternalScreenIsActive
+reporter: "xcode"
