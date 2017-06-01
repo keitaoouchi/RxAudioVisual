@@ -1,6 +1,5 @@
 import AVFoundation
 import RxSwift
-import RxCocoa
 
 internal extension Reactive where Base: AVAsynchronousKeyValueLoading {
 
