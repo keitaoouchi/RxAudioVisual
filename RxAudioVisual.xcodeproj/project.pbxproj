@@ -14,7 +14,9 @@
 		DE9B81011EDA54830018EE65 /* AVAsset+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B81001EDA54830018EE65 /* AVAsset+Rx.swift */; };
 		DEB879F548E95F4B03B8BC54 /* AVAssetTrack+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB8762C6F47A64A86FB59D4 /* AVAssetTrack+Rx.swift */; };
 		DEB87B18590F9336BDA1C3DE /* AVAsynchronousKeyValueLoading+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB87AB51C59EF5E27BA0FF2 /* AVAsynchronousKeyValueLoading+Rx.swift */; };
-		FC2AE58D1EE114280013FD2D /* AVPlayerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2AE58C1EE114280013FD2D /* AVPlayerSpec.swift */; };
+		FC2AE58D1EE114280013FD2D /* AVPlayer+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2AE58C1EE114280013FD2D /* AVPlayer+RxSpec.swift */; };
+		FC2AE58F1EE15AFA0013FD2D /* AVPlayerLayer+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2AE58E1EE15AFA0013FD2D /* AVPlayerLayer+RxSpec.swift */; };
+		FC2AE5911EE15EC50013FD2D /* AVPlayerItem+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2AE5901EE15EC50013FD2D /* AVPlayerItem+RxSpec.swift */; };
 		FC32E2A01EDFDCB900FF4B10 /* AVAsset+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32E29F1EDFDCB900FF4B10 /* AVAsset+RxSpec.swift */; };
 		FC32E2A21EDFDCB900FF4B10 /* RxAudioVisual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9B80F31EDA4D5B0018EE65 /* RxAudioVisual.framework */; };
 		FC32E2AA1EDFDE8300FF4B10 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC32E2A81EDFDE8300FF4B10 /* RxCocoa.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -46,7 +48,9 @@
 		DE9B81001EDA54830018EE65 /* AVAsset+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAsset+Rx.swift"; sourceTree = "<group>"; };
 		DEB8762C6F47A64A86FB59D4 /* AVAssetTrack+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAssetTrack+Rx.swift"; sourceTree = "<group>"; };
 		DEB87AB51C59EF5E27BA0FF2 /* AVAsynchronousKeyValueLoading+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAsynchronousKeyValueLoading+Rx.swift"; sourceTree = "<group>"; };
-		FC2AE58C1EE114280013FD2D /* AVPlayerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerSpec.swift; sourceTree = "<group>"; };
+		FC2AE58C1EE114280013FD2D /* AVPlayer+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayer+RxSpec.swift"; sourceTree = "<group>"; };
+		FC2AE58E1EE15AFA0013FD2D /* AVPlayerLayer+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayerLayer+RxSpec.swift"; sourceTree = "<group>"; };
+		FC2AE5901EE15EC50013FD2D /* AVPlayerItem+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayerItem+RxSpec.swift"; sourceTree = "<group>"; };
 		FC32E29D1EDFDCB900FF4B10 /* RxAudioVisualTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxAudioVisualTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC32E29F1EDFDCB900FF4B10 /* AVAsset+RxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAsset+RxSpec.swift"; sourceTree = "<group>"; };
 		FC32E2A11EDFDCB900FF4B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,7 +148,9 @@
 				FC7DA12D1EE0EF87000ABD91 /* sample.mov */,
 				FC32E29F1EDFDCB900FF4B10 /* AVAsset+RxSpec.swift */,
 				FC7DA12F1EE0F5B3000ABD91 /* AVAsssetTrack+RxSpec.swift */,
-				FC2AE58C1EE114280013FD2D /* AVPlayerSpec.swift */,
+				FC2AE58C1EE114280013FD2D /* AVPlayer+RxSpec.swift */,
+				FC2AE58E1EE15AFA0013FD2D /* AVPlayerLayer+RxSpec.swift */,
+				FC2AE5901EE15EC50013FD2D /* AVPlayerItem+RxSpec.swift */,
 			);
 			path = RxAudioVisualTests;
 			sourceTree = "<group>";
@@ -276,7 +282,9 @@
 			files = (
 				FC7DA1301EE0F5B3000ABD91 /* AVAsssetTrack+RxSpec.swift in Sources */,
 				FC32E2A01EDFDCB900FF4B10 /* AVAsset+RxSpec.swift in Sources */,
-				FC2AE58D1EE114280013FD2D /* AVPlayerSpec.swift in Sources */,
+				FC2AE5911EE15EC50013FD2D /* AVPlayerItem+RxSpec.swift in Sources */,
+				FC2AE58F1EE15AFA0013FD2D /* AVPlayerLayer+RxSpec.swift in Sources */,
+				FC2AE58D1EE114280013FD2D /* AVPlayer+RxSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
