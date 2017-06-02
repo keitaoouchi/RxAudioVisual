@@ -14,12 +14,15 @@
 		DE9B81011EDA54830018EE65 /* AVAsset+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B81001EDA54830018EE65 /* AVAsset+Rx.swift */; };
 		DEB879F548E95F4B03B8BC54 /* AVAssetTrack+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB8762C6F47A64A86FB59D4 /* AVAssetTrack+Rx.swift */; };
 		DEB87B18590F9336BDA1C3DE /* AVAsynchronousKeyValueLoading+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB87AB51C59EF5E27BA0FF2 /* AVAsynchronousKeyValueLoading+Rx.swift */; };
-		FC32E2A01EDFDCB900FF4B10 /* RxAudioVisualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32E29F1EDFDCB900FF4B10 /* RxAudioVisualSpec.swift */; };
+		FC2AE58D1EE114280013FD2D /* AVPlayerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2AE58C1EE114280013FD2D /* AVPlayerSpec.swift */; };
+		FC32E2A01EDFDCB900FF4B10 /* AVAsset+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32E29F1EDFDCB900FF4B10 /* AVAsset+RxSpec.swift */; };
 		FC32E2A21EDFDCB900FF4B10 /* RxAudioVisual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9B80F31EDA4D5B0018EE65 /* RxAudioVisual.framework */; };
 		FC32E2AA1EDFDE8300FF4B10 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC32E2A81EDFDE8300FF4B10 /* RxCocoa.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FC32E2AB1EDFDE8300FF4B10 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC32E2A91EDFDE8300FF4B10 /* RxSwift.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FC32E2AE1EDFDF4000FF4B10 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC32E2AC1EDFDF4000FF4B10 /* Nimble.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		FC32E2AF1EDFDF4000FF4B10 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC32E2AD1EDFDF4000FF4B10 /* Quick.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		FC7DA12E1EE0EF87000ABD91 /* sample.mov in Resources */ = {isa = PBXBuildFile; fileRef = FC7DA12D1EE0EF87000ABD91 /* sample.mov */; };
+		FC7DA1301EE0F5B3000ABD91 /* AVAsssetTrack+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7DA12F1EE0F5B3000ABD91 /* AVAsssetTrack+RxSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,13 +46,16 @@
 		DE9B81001EDA54830018EE65 /* AVAsset+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAsset+Rx.swift"; sourceTree = "<group>"; };
 		DEB8762C6F47A64A86FB59D4 /* AVAssetTrack+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAssetTrack+Rx.swift"; sourceTree = "<group>"; };
 		DEB87AB51C59EF5E27BA0FF2 /* AVAsynchronousKeyValueLoading+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAsynchronousKeyValueLoading+Rx.swift"; sourceTree = "<group>"; };
+		FC2AE58C1EE114280013FD2D /* AVPlayerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerSpec.swift; sourceTree = "<group>"; };
 		FC32E29D1EDFDCB900FF4B10 /* RxAudioVisualTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxAudioVisualTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC32E29F1EDFDCB900FF4B10 /* RxAudioVisualSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxAudioVisualSpec.swift; sourceTree = "<group>"; };
+		FC32E29F1EDFDCB900FF4B10 /* AVAsset+RxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAsset+RxSpec.swift"; sourceTree = "<group>"; };
 		FC32E2A11EDFDCB900FF4B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC32E2A81EDFDE8300FF4B10 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		FC32E2A91EDFDE8300FF4B10 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		FC32E2AC1EDFDF4000FF4B10 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		FC32E2AD1EDFDF4000FF4B10 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		FC7DA12D1EE0EF87000ABD91 /* sample.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sample.mov; sourceTree = SOURCE_ROOT; };
+		FC7DA12F1EE0F5B3000ABD91 /* AVAsssetTrack+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAsssetTrack+RxSpec.swift"; sourceTree = "<group>"; };
 		FCAF286AFD0ED5A19765F339 /* Pods-RxAudioVisual.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxAudioVisual.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxAudioVisual/Pods-RxAudioVisual.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,12 +127,12 @@
 			children = (
 				DE9B80F61EDA4D5B0018EE65 /* RxAudioVisual.h */,
 				DE9B80F71EDA4D5B0018EE65 /* Info.plist */,
-				DE9B80FE1EDA50410018EE65 /* AVPlayerItem+Rx.swift */,
 				DE9B81001EDA54830018EE65 /* AVAsset+Rx.swift */,
+				DEB8762C6F47A64A86FB59D4 /* AVAssetTrack+Rx.swift */,
+				DEB87AB51C59EF5E27BA0FF2 /* AVAsynchronousKeyValueLoading+Rx.swift */,
 				DE226FD31EDAEE8F00A46C07 /* AVPlayer+Rx.swift */,
 				DE226FD71EDAFA3700A46C07 /* AVPlayerLayer+Rx.swift */,
-				DEB87AB51C59EF5E27BA0FF2 /* AVAsynchronousKeyValueLoading+Rx.swift */,
-				DEB8762C6F47A64A86FB59D4 /* AVAssetTrack+Rx.swift */,
+				DE9B80FE1EDA50410018EE65 /* AVPlayerItem+Rx.swift */,
 			);
 			path = RxAudioVisual;
 			sourceTree = "<group>";
@@ -134,8 +140,11 @@
 		FC32E29E1EDFDCB900FF4B10 /* RxAudioVisualTests */ = {
 			isa = PBXGroup;
 			children = (
-				FC32E29F1EDFDCB900FF4B10 /* RxAudioVisualSpec.swift */,
 				FC32E2A11EDFDCB900FF4B10 /* Info.plist */,
+				FC7DA12D1EE0EF87000ABD91 /* sample.mov */,
+				FC32E29F1EDFDCB900FF4B10 /* AVAsset+RxSpec.swift */,
+				FC7DA12F1EE0F5B3000ABD91 /* AVAsssetTrack+RxSpec.swift */,
+				FC2AE58C1EE114280013FD2D /* AVPlayerSpec.swift */,
 			);
 			path = RxAudioVisualTests;
 			sourceTree = "<group>";
@@ -162,7 +171,6 @@
 				DE9B80EF1EDA4D5B0018EE65 /* Frameworks */,
 				DE9B80F01EDA4D5B0018EE65 /* Headers */,
 				DE9B80F11EDA4D5B0018EE65 /* Resources */,
-				FCBC8B3D1EDFE5A5004B9BD0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -242,28 +250,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7DA12E1EE0EF87000ABD91 /* sample.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		FCBC8B3D1EDFE5A5004B9BD0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DE9B80EE1EDA4D5B0018EE65 /* Sources */ = {
@@ -283,7 +274,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC32E2A01EDFDCB900FF4B10 /* RxAudioVisualSpec.swift in Sources */,
+				FC7DA1301EE0F5B3000ABD91 /* AVAsssetTrack+RxSpec.swift in Sources */,
+				FC32E2A01EDFDCB900FF4B10 /* AVAsset+RxSpec.swift in Sources */,
+				FC2AE58D1EE114280013FD2D /* AVPlayerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +456,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = RxAudioVisualTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keita.oouchi.RxAudioVisualTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -480,7 +473,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = RxAudioVisualTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keita.oouchi.RxAudioVisualTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
