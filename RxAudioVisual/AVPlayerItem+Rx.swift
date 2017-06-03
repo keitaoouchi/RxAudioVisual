@@ -47,27 +47,87 @@ extension Reactive where Base: AVPlayerItem {
 extension Reactive where Base: AVPlayerItem {
 
   public var didPlayToEnd: Observable<Notification> {
-    return NotificationCenter.default.rx.notification(.AVPlayerItemDidPlayToEndTime, object: base)
+    return NotificationCenter
+      .default
+      .rx
+      .notification(.AVPlayerItemDidPlayToEndTime, object: base)
+      .filter { notification in
+        if let obj = notification.object as? Base, obj == self.base {
+          return true
+        } else {
+          return false
+        }
+      }
   }
 
   public var timeJumped: Observable<Notification> {
-    return NotificationCenter.default.rx.notification(.AVPlayerItemTimeJumped, object: base)
+    return NotificationCenter
+      .default
+      .rx
+      .notification(.AVPlayerItemTimeJumped, object: base)
+      .filter { notification in
+        if let obj = notification.object as? Base, obj == self.base {
+          return true
+        } else {
+          return false
+        }
+      }
   }
 
   public var failedToPlayToEndTime: Observable<Notification> {
-    return NotificationCenter.default.rx.notification(.AVPlayerItemFailedToPlayToEndTime, object: base)
+    return NotificationCenter
+      .default
+      .rx
+      .notification(.AVPlayerItemFailedToPlayToEndTime, object: base)
+      .filter { notification in
+        if let obj = notification.object as? Base, obj == self.base {
+          return true
+        } else {
+          return false
+        }
+      }
   }
 
   public var playbackStalled: Observable<Notification> {
-    return NotificationCenter.default.rx.notification(.AVPlayerItemPlaybackStalled, object: base)
+    return NotificationCenter
+      .default
+      .rx
+      .notification(.AVPlayerItemPlaybackStalled, object: base)
+      .filter { notification in
+        if let obj = notification.object as? Base, obj == self.base {
+          return true
+        } else {
+          return false
+        }
+      }
   }
 
   public var newAccessLogEntry: Observable<Notification> {
-    return NotificationCenter.default.rx.notification(.AVPlayerItemNewAccessLogEntry, object: base)
+    return NotificationCenter
+      .default
+      .rx
+      .notification(.AVPlayerItemNewAccessLogEntry, object: base)
+      .filter { notification in
+        if let obj = notification.object as? Base, obj == self.base {
+          return true
+        } else {
+          return false
+        }
+      }
   }
 
   public var newErrorLogEntry: Observable<Notification> {
-    return NotificationCenter.default.rx.notification(.AVPlayerItemNewErrorLogEntry, object: base)
+    return NotificationCenter
+      .default
+      .rx
+      .notification(.AVPlayerItemNewErrorLogEntry, object: base)
+      .filter { notification in
+        if let obj = notification.object as? Base, obj == self.base {
+          return true
+        } else {
+          return false
+        }
+      }
   }
 
 }

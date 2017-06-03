@@ -13,13 +13,16 @@ class AVPlayerLayerSpec: QuickSpec {
       var player: AVPlayer!
       var playerLayer: AVPlayerLayer!
       var disposeBag: DisposeBag!
-      var view = UIView()
+      let view = UIView(frame: CGRect(x: 0, y: 0, width: 360, height: 800))
 
       beforeEach {
         let path = Bundle(for: AVPlayerLayerSpec.self).path(forResource: "sample", ofType: "mov")
         let url = URL(string: path!)
-        player = AVPlayer(url: url!)
+        let asset = AVAsset(url: url!)
+        let item = AVPlayerItem(asset: asset)
+        player = AVPlayer(playerItem: item)
         playerLayer = AVPlayerLayer(player: player)
+        view.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
         view.layer.addSublayer(playerLayer)
         disposeBag = DisposeBag()
       }
@@ -42,8 +45,7 @@ class AVPlayerLayerSpec: QuickSpec {
         var e: Bool?
         playerLayer.rx.readyForDisplay.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
         expect(e).toEventuallyNot(beNil())
-        // FIXME: ???
-        //expect(e).toEventually(beTrue())
+        //FIXME: expect(e).toEventually(beTrue())
       }
 
       it("should load videoRect") {

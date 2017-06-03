@@ -74,58 +74,74 @@ class AVPlayerItemSpec: QuickSpec {
         disposeBag = DisposeBag()
       }
 
-      it("should receive didPlayToEnd") {
-        var e: Notification?
+      it("should not receive didPlayToEnd of another item") {
+        var e: Notification? = nil
         item.rx.didPlayToEnd.subscribe(onNext: { v in
           e = v
         }).addDisposableTo(disposeBag)
-        NotificationCenter.default.post(name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        let anotherItem = AVPlayerItem(asset: asset)
+        NotificationCenter.default.post(name: .AVPlayerItemDidPlayToEndTime, object: anotherItem)
+        expect(e).toEventually(beNil())
+      }
+
+      it("should receive didPlayToEnd") {
+        var e: Notification? = nil
+        item.rx.didPlayToEnd.subscribe(onNext: { v in
+          e = v
+        }).addDisposableTo(disposeBag)
+        NotificationCenter.default.post(name: .AVPlayerItemDidPlayToEndTime, object: item)
         expect(e).toEventuallyNot(beNil())
+        expect(e!.name).to(equal(Notification.Name.AVPlayerItemDidPlayToEndTime))
       }
 
       it("should receive timeJumped") {
-        var e: Notification?
-        item.rx.didPlayToEnd.subscribe(onNext: { v in
+        var e: Notification? = nil
+        item.rx.timeJumped.subscribe(onNext: { v in
           e = v
         }).addDisposableTo(disposeBag)
-        NotificationCenter.default.post(name: .AVPlayerItemTimeJumped, object: nil)
+        NotificationCenter.default.post(name: .AVPlayerItemTimeJumped, object: item)
         expect(e).toEventuallyNot(beNil())
+        expect(e!.name).to(equal(Notification.Name.AVPlayerItemTimeJumped))
       }
 
       it("should receive failedToPlayToEndTime") {
-        var e: Notification?
-        item.rx.didPlayToEnd.subscribe(onNext: { v in
+        var e: Notification? = nil
+        item.rx.failedToPlayToEndTime.subscribe(onNext: { v in
           e = v
         }).addDisposableTo(disposeBag)
-        NotificationCenter.default.post(name: .AVPlayerItemFailedToPlayToEndTime, object: nil)
+        NotificationCenter.default.post(name: .AVPlayerItemFailedToPlayToEndTime, object: item)
         expect(e).toEventuallyNot(beNil())
+        expect(e!.name).to(equal(Notification.Name.AVPlayerItemFailedToPlayToEndTime))
       }
 
       it("should receive playbackStalled") {
-        var e: Notification?
-        item.rx.didPlayToEnd.subscribe(onNext: { v in
+        var e: Notification? = nil
+        item.rx.playbackStalled.subscribe(onNext: { v in
           e = v
         }).addDisposableTo(disposeBag)
-        NotificationCenter.default.post(name: .AVPlayerItemPlaybackStalled, object: nil)
+        NotificationCenter.default.post(name: .AVPlayerItemPlaybackStalled, object: item)
         expect(e).toEventuallyNot(beNil())
+        expect(e!.name).to(equal(Notification.Name.AVPlayerItemPlaybackStalled))
       }
 
       it("should receive newAccessLogEntry") {
-        var e: Notification?
-        item.rx.didPlayToEnd.subscribe(onNext: { v in
+        var e: Notification? = nil
+        item.rx.newAccessLogEntry.subscribe(onNext: { v in
           e = v
         }).addDisposableTo(disposeBag)
-        NotificationCenter.default.post(name: .AVPlayerItemNewAccessLogEntry, object: nil)
+        NotificationCenter.default.post(name: .AVPlayerItemNewAccessLogEntry, object: item)
         expect(e).toEventuallyNot(beNil())
+        expect(e!.name).to(equal(Notification.Name.AVPlayerItemNewAccessLogEntry))
       }
 
       it("should receive newErrorLogEntry") {
-        var e: Notification?
-        item.rx.didPlayToEnd.subscribe(onNext: { v in
+        var e: Notification? = nil
+        item.rx.newErrorLogEntry.subscribe(onNext: { v in
           e = v
         }).addDisposableTo(disposeBag)
-        NotificationCenter.default.post(name: .AVPlayerItemNewErrorLogEntry, object: nil)
+        NotificationCenter.default.post(name: .AVPlayerItemNewErrorLogEntry, object: item)
         expect(e).toEventuallyNot(beNil())
+        expect(e!.name).to(equal(Notification.Name.AVPlayerItemNewErrorLogEntry))
       }
 
     }

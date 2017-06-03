@@ -38,7 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		924CECFC9DD8AEA44D4AB34D /* Pods-RxAudioVisual.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxAudioVisual.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxAudioVisual/Pods-RxAudioVisual.release.xcconfig"; sourceTree = "<group>"; };
 		DE226FD31EDAEE8F00A46C07 /* AVPlayer+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Rx.swift"; sourceTree = "<group>"; };
 		DE226FD71EDAFA3700A46C07 /* AVPlayerLayer+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayerLayer+Rx.swift"; sourceTree = "<group>"; };
 		DE9B80F31EDA4D5B0018EE65 /* RxAudioVisual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxAudioVisual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +59,6 @@
 		FC32E2AD1EDFDF4000FF4B10 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		FC7DA12D1EE0EF87000ABD91 /* sample.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sample.mov; sourceTree = SOURCE_ROOT; };
 		FC7DA12F1EE0F5B3000ABD91 /* AVAsssetTrack+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAsssetTrack+RxSpec.swift"; sourceTree = "<group>"; };
-		FCAF286AFD0ED5A19765F339 /* Pods-RxAudioVisual.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxAudioVisual.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxAudioVisual/Pods-RxAudioVisual.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,22 +95,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		82D740276A7E602AC1C5FD43 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FCAF286AFD0ED5A19765F339 /* Pods-RxAudioVisual.debug.xcconfig */,
-				924CECFC9DD8AEA44D4AB34D /* Pods-RxAudioVisual.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		DE9B80E91EDA4D5B0018EE65 = {
 			isa = PBXGroup;
 			children = (
 				DE9B80F51EDA4D5B0018EE65 /* RxAudioVisual */,
 				FC32E29E1EDFDCB900FF4B10 /* RxAudioVisualTests */,
 				DE9B80F41EDA4D5B0018EE65 /* Products */,
-				82D740276A7E602AC1C5FD43 /* Pods */,
 				0AEFEDCD92E2D08DCF760D91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -402,7 +390,6 @@
 		};
 		DE9B80FC1EDA4D5B0018EE65 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCAF286AFD0ED5A19765F339 /* Pods-RxAudioVisual.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -430,7 +417,6 @@
 		};
 		DE9B80FD1EDA4D5B0018EE65 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 924CECFC9DD8AEA44D4AB34D /* Pods-RxAudioVisual.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";

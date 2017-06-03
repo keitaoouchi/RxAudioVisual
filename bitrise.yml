@@ -20,6 +20,7 @@ workflows:
         - is_clean_build: 'no'
         - export_uitest_artifacts: 'false'
         - should_retry_test_on_fail: 'no'
+        - should_build_before_test: 'no'
     - cache-push:
         inputs:
         - cache_paths: |-
@@ -30,7 +31,7 @@ app:
   envs:
   - opts:
       is_expand: false
-    BITRISE_PROJECT_PATH: RXAudioVisual.xcodeproj
+    BITRISE_PROJECT_PATH: RxAudioVisual.xcodeproj
   - opts:
       is_expand: false
     BITRISE_SCHEME: RxAudioVisualTests
