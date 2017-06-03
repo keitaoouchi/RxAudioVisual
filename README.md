@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.bitrise.io/app/29c26b2d77b1b3d3/status.svg?token=IGg7cYfCkRh7tXP5_1igJQ&branch=master)](https://www.bitrise.io/app/29c26b2d77b1b3d3)
 [![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://swift.org/)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)]
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/RxAudioVisual.svg?style=flat)](http://cocoapods.org/pods/RxAudioVisual)
 [![License](https://img.shields.io/cocoapods/l/RxAudioVisual.svg?style=flat)](http://cocoapods.org/pods/RxAudioVisual)
 [![Platform](https://img.shields.io/cocoapods/p/FluxxKit.svg?style=flat)](http://cocoapods.org/pods/FluxxKit)
