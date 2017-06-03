@@ -1,0 +1,37 @@
+---
+format_version: 1.2.0
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+trigger_map:
+- push_branch: "*"
+  workflow: primary
+workflows:
+  primary:
+    steps:
+    - activate-ssh-key:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone: {}
+    - cache-pull: {}
+    - carthage:
+        inputs:
+        - carthage_options: "--platform ios"
+    - xcode-test:
+        inputs:
+        - simulator_device: iPhone 6 Plus
+        - is_clean_build: 'no'
+        - export_uitest_artifacts: 'false'
+        - should_retry_test_on_fail: 'no'
+        - should_build_before_test: 'no'
+    - cache-push:
+        inputs:
+        - cache_paths: |-
+            $BITRISE_CACHE_DIR
+            ./Cartfile.resolved
+            ./Carthage -> ./Cartfile.resolved
+app:
+  envs:
+  - opts:
+      is_expand: false
+    BITRISE_PROJECT_PATH: RxAudioVisual.xcodeproj
+  - opts:
+      is_expand: false
+    BITRISE_SCHEME: RxAudioVisualTests

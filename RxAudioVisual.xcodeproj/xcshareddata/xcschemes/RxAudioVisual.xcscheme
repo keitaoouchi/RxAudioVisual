@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "DE9B80F21EDA4D5B0018EE65"
+            BuildableName = "RxAudioVisual.framework"
+            BlueprintName = "RxAudioVisual"
+            ReferencedContainer = "container:RxAudioVisual.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

@@ -20,7 +20,6 @@ extension Reactive where Base: AVPlayer {
   public var timeControlStatus: Observable<AVPlayerTimeControlStatus> {
     return self
       .observe(AVPlayerTimeControlStatus.self, #keyPath(AVPlayer.timeControlStatus))
-      // TODO: or flatMap ???
       .map { $0 ?? .paused }
   }
 
@@ -80,6 +79,5 @@ extension Reactive where Base: AVPlayer {
       .observe(Bool.self, #keyPath(AVPlayer.usesExternalPlaybackWhileExternalScreenIsActive))
       .map { $0 ?? false }
   }
-  
-}
 
+}
