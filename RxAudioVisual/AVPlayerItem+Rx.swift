@@ -23,6 +23,12 @@ extension Reactive where Base: AVPlayerItem {
     )
   }
 
+  public var loadedTimeRanges: Observable<[NSValue]> {
+    return self.observe(
+      [NSValue].self, #keyPath(AVPlayerItem.loadedTimeRanges)
+    ).map { $0 ?? [] }
+  }
+
   public var presentationSize: Observable<CMTime> {
     return self.observe(
       CMTime.self, #keyPath(AVPlayerItem.presentationSize)
@@ -35,10 +41,44 @@ extension Reactive where Base: AVPlayerItem {
     ).map { $0 ?? .unknown }
   }
 
+  public var timebase: Observable<CMTimebase?> {
+    return self.observe(
+      CMTimebase.self, #keyPath(AVPlayerItem.timebase)
+    )
+  }
+
   public var tracks: Observable<[AVPlayerItemTrack]> {
     return self.observe(
       [AVPlayerItemTrack].self, #keyPath(AVPlayerItem.tracks)
     ).map { $0 ?? [] }
+  }
+
+  // MARK: - Moving the Playhead
+
+  public var seekableTimeRanges: Observable<[NSValue]> {
+    return self.observe(
+      [NSValue].self, #keyPath(AVPlayerItem.seekableTimeRanges)
+    ).map { $0 ?? [] }
+  }
+
+  // MARK: - Information About Playback
+
+  public var isPlaybackLikelyToKeepUp: Observable<Bool> {
+    return self.observe(
+      Bool.self, #keyPath(AVPlayerItem.isPlaybackLikelyToKeepUp)
+    ).map { $0 ?? false }
+  }
+
+  public var isPlaybackBufferEmpty: Observable<Bool> {
+    return self.observe(
+      Bool.self, #keyPath(AVPlayerItem.isPlaybackBufferEmpty)
+    ).map { $0 ?? false }
+  }
+
+  public var isPlaybackBufferFull: Observable<Bool> {
+    return self.observe(
+      Bool.self, #keyPath(AVPlayerItem.isPlaybackBufferFull)
+    ).map { $0 ?? false }
   }
 
 }
