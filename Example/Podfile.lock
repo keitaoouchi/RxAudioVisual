@@ -1,5 +1,5 @@
 PODS:
-  - RxAudioVisual (0.0.1):
+  - RxAudioVisual (1.0.1):
     - RxCocoa (~> 3.4)
     - RxSwift (~> 3.4)
   - RxCocoa (3.5.0):
@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: "./../"
 
 SPEC CHECKSUMS:
-  RxAudioVisual: 875f3fa991a7aa4c921fb16d8933c1d407d56d05
+  RxAudioVisual: be7091a3cec83a39e5cad8b3c2581f0b3142f62e
   RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
   RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
   SwiftyBeaver: 90a39e3dc5136b7285f2e4c870b107e3933b8b84

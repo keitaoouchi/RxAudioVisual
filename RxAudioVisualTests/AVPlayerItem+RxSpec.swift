@@ -36,6 +36,13 @@ class AVPlayerItemSpec: QuickSpec {
         expect(e).toEventuallyNot(equal(kCMTimeZero))
       }
 
+      it("should load loadedTimeRanges") {
+        var e: [NSValue]?
+        item.rx.loadedTimeRanges.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        expect(e).toEventuallyNot(beNil())
+        expect(e).toEventuallyNot(beEmpty())
+      }
+
       it("should load presentationSize") {
         var e: CMTime?
         item.rx.presentationSize.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
@@ -51,11 +58,46 @@ class AVPlayerItemSpec: QuickSpec {
         //expect(e).toEventually(equal(AVPlayerItemStatus.readyToPlay))
       }
 
+      it("should load timebase") {
+        var e: CMTimebase?
+        item.rx.timebase.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        expect(e).toEventuallyNot(beNil())
+      }
+
       it("should load tracks") {
         var e: [AVPlayerItemTrack]?
         item.rx.tracks.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventuallyNot(beEmpty())
+      }
+
+      it("should load seekableTimeRanges") {
+        var e: [NSValue]?
+        item.rx.seekableTimeRanges.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        expect(e).toEventuallyNot(beNil())
+        expect(e).toEventuallyNot(beEmpty())
+      }
+
+      it("should load isPlaybackLikelyToKeepUp") {
+        var e: Bool?
+        item.rx.isPlaybackLikelyToKeepUp.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        expect(e).toEventuallyNot(beNil())
+        expect(e).toEventuallyNot(beFalse())
+        expect(e).toEventuallyNot(beTrue())
+      }
+
+      it("should load isPlaybackBufferEmpty") {
+        var e: Bool?
+        item.rx.isPlaybackBufferEmpty.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        expect(e).toEventuallyNot(beNil())
+        expect(e).toEventuallyNot(beFalse())
+      }
+
+      it("should load isPlaybackBufferFull") {
+        var e: Bool?
+        item.rx.isPlaybackBufferFull.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        expect(e).toEventuallyNot(beNil())
+        expect(e).toEventuallyNot(beFalse())
       }
 
     }
