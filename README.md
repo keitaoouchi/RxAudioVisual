@@ -119,6 +119,18 @@ item.rx.didPlayToEnd.subscribe(onNext: { _ in
 
 | property                                        | ObservableType | Element                   |
 |-------------------------------------------------|----------------|---------------------------|
+| asset                                           | Observable     | AVAsset?                  |
+| duration                                        | Observable     | CMTime                    |
+| error                                           | Observable     | NSError?                  |
+| loadedTimeRanges                                | Observable     | [NSValue]                 |
+| presentationSize                                | Observable     | CMTime                    |
+| status                                          | Observable     | AVPlayerItemStatus        |
+| timebase                                        | Observable     | CMTimebase?               |
+| tracks                                          | Observable     | [AVPlayerItemTrack]       |
+| seekableTimeRanges                              | Observable     | [NSValue]                 |
+| isPlaybackLikelyToKeepUp                        | Observable     | Bool                      |
+| isPlaybackBufferEmpty                           | Observable     | Bool                      |
+| isPlaybackBufferFull                            | Observable     | Bool                      |
 | didPlayToEnd                                    | Observable     | Notification              |
 | timeJumped                                      | Observable     | Notification              |
 | failedToPlayToEndTime                           | Observable     | Notification              |
