@@ -49,12 +49,12 @@ extension ViewController: UISearchBarDelegate {
       layer.frame = self.videoView.bounds
       self.videoView.layer.addSublayer(layer)
       player.play()
-    }).addDisposableTo(self.disposeBag)
+    }).disposed(by: self.disposeBag)
 
     // infinite video playing
     item.rx.didPlayToEnd.subscribe(onNext: { _ in
       player.seek(to: kCMTimeZero)
       player.play()
-    }).addDisposableTo(self.disposeBag)
+    }).disposed(by: self.disposeBag)
   }
 }
