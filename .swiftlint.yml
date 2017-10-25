@@ -6,6 +6,7 @@ excluded:
   - Carthage
 included:
   - RxAudioVisual/
+  - RxAudioVisualTests/
   - Example/Example/
 variable_name:
   excluded:
