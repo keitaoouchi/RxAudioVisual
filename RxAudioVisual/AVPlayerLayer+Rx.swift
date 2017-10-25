@@ -10,11 +10,13 @@ extension Reactive where Base: AVPlayerLayer {
       .observe(AVPlayer.self, #keyPath(AVPlayerLayer.player))
   }
 
-  public var videoGravity: Observable<String> {
-    return self
-      .observe(String.self, #keyPath(AVPlayerLayer.videoGravity))
-      .map { $0 ?? AVLayerVideoGravityResizeAspect }
-  }
+  // FIXME: ~ iOS10.0, this videoGravity returns String
+  //@available(iOS 11, *)
+  //public var videoGravity: Observable<AVLayerVideoGravity> {
+  //  return self
+  //    .observe(AVLayerVideoGravity.self, #keyPath(AVPlayerLayer.videoGravity))
+  //    .map { $0 ?? AVLayerVideoGravity.reizeAspect }
+  //}
 
   public var readyForDisplay: Observable<Bool> {
     return self

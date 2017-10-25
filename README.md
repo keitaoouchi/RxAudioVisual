@@ -13,7 +13,7 @@
 
 | Target            | Version |
 |-------------------|---------|
-| iOS               |  => 9.0 |
+| iOS               |  => 10.0 |
 | Swift             |  ~> 4.0 |
 | RxSwift / RxCocoa |  ~> 4.0 |
 

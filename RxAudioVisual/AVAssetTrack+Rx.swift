@@ -3,17 +3,19 @@ import RxSwift
 
 extension Reactive where Base: AVAssetTrack {
 
-  public var mediaType: Single<String?> {
-    return self
-        .loadAsync(for: "mediaType")
-        .map({ loaded in
-          if loaded {
-            return self.base.mediaType
-          } else {
-            return nil
-          }
-        })
-  }
+  // FIXME: ~ iOS10.0, this videoGravity returns String
+  //@available(iOS 11, *)
+  //public var mediaType: Single<String?> {
+  //  return self
+  //      .loadAsync(for: "mediaType")
+  //      .map({ loaded in
+  //        if loaded {
+  //          return self.base.mediaType
+  //        } else {
+  //          return nil
+  //        }
+  //      })
+  //}
 
   public var playable: Single<Bool> {
     return self

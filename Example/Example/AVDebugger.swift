@@ -134,10 +134,6 @@ struct AVDebugger {
       logger.debug("[AVPlayerLayer][player]: \(String(describing: player))")
     }).disposed(by: self.disposeBag)
 
-    layer.rx.videoGravity.subscribe(onNext: { videoGravity in
-      logger.debug("[AVPlayerLayer][videoGravity]: \(videoGravity)")
-    }).disposed(by: self.disposeBag)
-
     layer.rx.readyForDisplay.subscribe(onNext: { readyForDisplay in
       logger.debug("[AVPlayerLayer][readyForDisplay]: \(readyForDisplay)")
     }).disposed(by: self.disposeBag)
@@ -145,16 +141,9 @@ struct AVDebugger {
     layer.rx.videoRect.subscribe(onNext: { videoRect in
       logger.debug("[AVPlayerLayer][videoRect]: \(videoRect)")
     }).disposed(by: self.disposeBag)
-
-    layer.rx.videoGravity.subscribe(onNext: { gravity in
-      logger.debug("[AVPlayerLayer][videoGravity]: \(gravity)")
-    }).disposed(by: self.disposeBag)
   }
 
   func debug(track: AVAssetTrack) {
-    track.rx.mediaType.subscribe(onSuccess: { mediaType in
-      logger.debug("[AVAssetTrack][mediaType]: \(String(describing: mediaType))")
-    }).disposed(by: self.disposeBag)
 
     track.rx.playable.subscribe(onSuccess: { playable in
       logger.debug("[AVAssetTrack][playable]: \(playable)")

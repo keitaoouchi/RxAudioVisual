@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source        = { :git => "https://github.com/keitaoouchi/RxAudioVisual.git", :tag => "#{s.version}" }
   s.source_files  = "RxAudioVisual/*.{swift,h}"
   s.frameworks    = "AVFoundation"
-  s.ios.deployment_target = "8.0"
+  s.ios.deployment_target = "10.0"
   s.pod_target_xcconfig = { "SWIFT_VERSION" => "4.0" }
   s.dependency 'RxSwift', '~> 4.0'
   s.dependency 'RxCocoa', '~> 4.0'
