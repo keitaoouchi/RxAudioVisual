@@ -85,7 +85,6 @@ item.rx.didPlayToEnd.subscribe(onNext: { _ in
 
 | property                                        | ObservableType | Element                   |
 |-------------------------------------------------|----------------|---------------------------|
-| mediaType                                       | Single         | String?                   |
 | playable                                        | Single         | Bool                      |
 | enabled                                         | Single         | Bool                      |
 | selfContained                                   | Single         | Bool                      |
@@ -143,7 +142,6 @@ item.rx.didPlayToEnd.subscribe(onNext: { _ in
 | property                                        | ObservableType | Element                   |
 |-------------------------------------------------|----------------|---------------------------|
 | player                                          | Observable     | AVPlayer?                 |
-| videoGravity                                    | Observable     | String                    |
 | readyForDisplay                                 | Observable     | Bool                      |
 | videoRect                                       | Observable     | CGRect                    |
 
