@@ -34,12 +34,12 @@ class AVPlayerLayerSpec: QuickSpec {
         expect(e).toEventually(equal(player))
       }
 
-      it("should load videoGravity") {
-        var e: String?
-        playerLayer.rx.videoGravity.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
-        expect(e).toEventuallyNot(beNil())
-        expect(e).toEventually(equal(AVLayerVideoGravityResizeAspect))
-      }
+      // it("should load videoGravity") {
+      //   var e: String?
+      //   playerLayer.rx.videoGravity.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+      //   expect(e).toEventuallyNot(beNil())
+      //   expect(e).toEventually(equal(AVLayerVideoGravityResizeAspect))
+      // }
 
       it("should load readyForDisplay") {
         var e: Bool?
