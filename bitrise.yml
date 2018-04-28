@@ -1,5 +1,5 @@
 ---
-format_version: 1.2.0
+format_version: "4"
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 trigger_map:
 - push_branch: "*"
@@ -13,7 +13,7 @@ workflows:
     - cache-pull: {}
     - carthage:
         inputs:
-        - carthage_options: "--platform ios"
+        - carthage_options: "--platform ios --cache-builds"
     - xcode-test:
         inputs:
         - simulator_device: iPhone 8

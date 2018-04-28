@@ -12,47 +12,51 @@ class AVPlayerItemSpec: QuickSpec {
 
       var asset: AVAsset!
       var item: AVPlayerItem!
+      var player: AVPlayer!
       var disposeBag: DisposeBag!
 
       beforeEach {
-        let path = Bundle(for: AVPlayerItemSpec.self).path(forResource: "sample", ofType: "mov")
-        let url = URL(string: path!)
-        asset = AVAsset(url: url!)
+        asset = AVAsset(url: TestHelper.sampleURL)
         item = AVPlayerItem(asset: asset)
+        player = AVPlayer(playerItem: item)
         disposeBag = DisposeBag()
+      }
+      
+      afterEach {
+        player.pause()
       }
 
       it("should load asset") {
         var e: AVAsset?
-        item.rx.asset.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        item.rx.asset.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventually(equal(asset))
       }
 
       it("should load duration") {
         var e: CMTime?
-        item.rx.duration.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        item.rx.duration.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventuallyNot(equal(kCMTimeZero))
       }
 
       it("should load loadedTimeRanges") {
         var e: [NSValue]?
-        item.rx.loadedTimeRanges.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        item.rx.loadedTimeRanges.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventuallyNot(beEmpty())
       }
 
       it("should load presentationSize") {
         var e: CMTime?
-        item.rx.presentationSize.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        item.rx.presentationSize.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventually(equal(kCMTimeZero))
       }
 
       it("should load status") {
         var e: AVPlayerItemStatus?
-        item.rx.status.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        item.rx.status.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         // FIXME: WHY???
         //expect(e).toEventually(equal(AVPlayerItemStatus.readyToPlay))
@@ -60,44 +64,42 @@ class AVPlayerItemSpec: QuickSpec {
 
       it("should load timebase") {
         var e: CMTimebase?
-        item.rx.timebase.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        item.rx.timebase.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
       }
 
       it("should load tracks") {
         var e: [AVPlayerItemTrack]?
-        item.rx.tracks.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        item.rx.tracks.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventuallyNot(beEmpty())
       }
 
       it("should load seekableTimeRanges") {
         var e: [NSValue]?
-        item.rx.seekableTimeRanges.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        item.rx.seekableTimeRanges.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventuallyNot(beEmpty())
       }
 
       it("should load isPlaybackLikelyToKeepUp") {
         var e: Bool?
-        item.rx.isPlaybackLikelyToKeepUp.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        item.rx.isPlaybackLikelyToKeepUp.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
-        expect(e).toEventuallyNot(beFalse())
-        expect(e).toEventuallyNot(beTrue())
+        player.play()
       }
 
       it("should load isPlaybackBufferEmpty") {
         var e: Bool?
-        item.rx.isPlaybackBufferEmpty.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        item.rx.isPlaybackBufferEmpty.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
-        expect(e).toEventuallyNot(beFalse())
       }
 
       it("should load isPlaybackBufferFull") {
+        player.play()
         var e: Bool?
-        item.rx.isPlaybackBufferFull.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        item.rx.isPlaybackBufferFull.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
-        expect(e).toEventuallyNot(beFalse())
       }
 
     }
@@ -120,7 +122,7 @@ class AVPlayerItemSpec: QuickSpec {
         var e: Notification? = nil
         item.rx.didPlayToEnd.subscribe(onNext: { v in
           e = v
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
         let anotherItem = AVPlayerItem(asset: asset)
         NotificationCenter.default.post(name: .AVPlayerItemDidPlayToEndTime, object: anotherItem)
         expect(e).toEventually(beNil())
@@ -130,7 +132,7 @@ class AVPlayerItemSpec: QuickSpec {
         var e: Notification? = nil
         item.rx.didPlayToEnd.subscribe(onNext: { v in
           e = v
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
         NotificationCenter.default.post(name: .AVPlayerItemDidPlayToEndTime, object: item)
         expect(e).toEventuallyNot(beNil())
         expect(e!.name).to(equal(Notification.Name.AVPlayerItemDidPlayToEndTime))
@@ -140,7 +142,7 @@ class AVPlayerItemSpec: QuickSpec {
         var e: Notification? = nil
         item.rx.timeJumped.subscribe(onNext: { v in
           e = v
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
         NotificationCenter.default.post(name: .AVPlayerItemTimeJumped, object: item)
         expect(e).toEventuallyNot(beNil())
         expect(e!.name).to(equal(Notification.Name.AVPlayerItemTimeJumped))
@@ -150,7 +152,7 @@ class AVPlayerItemSpec: QuickSpec {
         var e: Notification? = nil
         item.rx.failedToPlayToEndTime.subscribe(onNext: { v in
           e = v
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
         NotificationCenter.default.post(name: .AVPlayerItemFailedToPlayToEndTime, object: item)
         expect(e).toEventuallyNot(beNil())
         expect(e!.name).to(equal(Notification.Name.AVPlayerItemFailedToPlayToEndTime))
@@ -160,7 +162,7 @@ class AVPlayerItemSpec: QuickSpec {
         var e: Notification? = nil
         item.rx.playbackStalled.subscribe(onNext: { v in
           e = v
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
         NotificationCenter.default.post(name: .AVPlayerItemPlaybackStalled, object: item)
         expect(e).toEventuallyNot(beNil())
         expect(e!.name).to(equal(Notification.Name.AVPlayerItemPlaybackStalled))
@@ -170,7 +172,7 @@ class AVPlayerItemSpec: QuickSpec {
         var e: Notification? = nil
         item.rx.newAccessLogEntry.subscribe(onNext: { v in
           e = v
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
         NotificationCenter.default.post(name: .AVPlayerItemNewAccessLogEntry, object: item)
         expect(e).toEventuallyNot(beNil())
         expect(e!.name).to(equal(Notification.Name.AVPlayerItemNewAccessLogEntry))
@@ -180,7 +182,7 @@ class AVPlayerItemSpec: QuickSpec {
         var e: Notification? = nil
         item.rx.newErrorLogEntry.subscribe(onNext: { v in
           e = v
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
         NotificationCenter.default.post(name: .AVPlayerItemNewErrorLogEntry, object: item)
         expect(e).toEventuallyNot(beNil())
         expect(e!.name).to(equal(Notification.Name.AVPlayerItemNewErrorLogEntry))

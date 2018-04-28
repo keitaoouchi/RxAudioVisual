@@ -14,6 +14,7 @@
 		DE9B81011EDA54830018EE65 /* AVAsset+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B81001EDA54830018EE65 /* AVAsset+Rx.swift */; };
 		DEB879F548E95F4B03B8BC54 /* AVAssetTrack+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB8762C6F47A64A86FB59D4 /* AVAssetTrack+Rx.swift */; };
 		DEB87B18590F9336BDA1C3DE /* AVAsynchronousKeyValueLoading+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB87AB51C59EF5E27BA0FF2 /* AVAsynchronousKeyValueLoading+Rx.swift */; };
+		FC07318C209447A0003DA431 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC07318B209447A0003DA431 /* TestHelper.swift */; };
 		FC2AE58D1EE114280013FD2D /* AVPlayer+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2AE58C1EE114280013FD2D /* AVPlayer+RxSpec.swift */; };
 		FC2AE58F1EE15AFA0013FD2D /* AVPlayerLayer+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2AE58E1EE15AFA0013FD2D /* AVPlayerLayer+RxSpec.swift */; };
 		FC2AE5911EE15EC50013FD2D /* AVPlayerItem+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2AE5901EE15EC50013FD2D /* AVPlayerItem+RxSpec.swift */; };
@@ -47,6 +48,7 @@
 		DE9B81001EDA54830018EE65 /* AVAsset+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAsset+Rx.swift"; sourceTree = "<group>"; };
 		DEB8762C6F47A64A86FB59D4 /* AVAssetTrack+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAssetTrack+Rx.swift"; sourceTree = "<group>"; };
 		DEB87AB51C59EF5E27BA0FF2 /* AVAsynchronousKeyValueLoading+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAsynchronousKeyValueLoading+Rx.swift"; sourceTree = "<group>"; };
+		FC07318B209447A0003DA431 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		FC2AE58C1EE114280013FD2D /* AVPlayer+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayer+RxSpec.swift"; sourceTree = "<group>"; };
 		FC2AE58E1EE15AFA0013FD2D /* AVPlayerLayer+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayerLayer+RxSpec.swift"; sourceTree = "<group>"; };
 		FC2AE5901EE15EC50013FD2D /* AVPlayerItem+RxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayerItem+RxSpec.swift"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				FC2AE58C1EE114280013FD2D /* AVPlayer+RxSpec.swift */,
 				FC2AE58E1EE15AFA0013FD2D /* AVPlayerLayer+RxSpec.swift */,
 				FC2AE5901EE15EC50013FD2D /* AVPlayerItem+RxSpec.swift */,
+				FC07318B209447A0003DA431 /* TestHelper.swift */,
 			);
 			path = RxAudioVisualTests;
 			sourceTree = "<group>";
@@ -200,16 +203,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = keitaoouchi;
 				TargetAttributes = {
 					DE9B80F21EDA4D5B0018EE65 = {
 						CreatedOnToolsVersion = 8.3.2;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Manual;
 					};
 					FC32E29C1EDFDCB900FF4B10 = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -271,6 +275,7 @@
 				FC7DA1301EE0F5B3000ABD91 /* AVAsssetTrack+RxSpec.swift in Sources */,
 				FC32E2A01EDFDCB900FF4B10 /* AVAsset+RxSpec.swift in Sources */,
 				FC2AE5911EE15EC50013FD2D /* AVPlayerItem+RxSpec.swift in Sources */,
+				FC07318C209447A0003DA431 /* TestHelper.swift in Sources */,
 				FC2AE58F1EE15AFA0013FD2D /* AVPlayerLayer+RxSpec.swift in Sources */,
 				FC2AE58D1EE114280013FD2D /* AVPlayer+RxSpec.swift in Sources */,
 			);
@@ -297,15 +302,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -350,15 +363,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -409,7 +430,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -435,7 +457,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -452,7 +475,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.keita.oouchi.RxAudioVisualTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -469,7 +493,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.keita.oouchi.RxAudioVisualTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

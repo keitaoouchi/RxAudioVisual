@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "RxAudioVisual"
-  s.version       = "1.1.0"
+  s.version       = "1.2.0"
   s.summary       = "A reactive wrapper built around AVFoundation."
   s.homepage      = "https://github.com/keitaoouchi/RxAudioVisual"
   s.license       = { :type => "MIT", :file => "LICENSE" }
