@@ -13,16 +13,22 @@ DEPENDENCIES:
   - RxSwift
   - SwiftyBeaver
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - RxCocoa
+    - RxSwift
+    - SwiftyBeaver
+
 EXTERNAL SOURCES:
   RxAudioVisual:
-    :path: ./../
+    :path: "./../"
 
 SPEC CHECKSUMS:
-  RxAudioVisual: 3159d540e5bbe530b9305d32172211b626f14a2d
+  RxAudioVisual: 61e32ad85a3a527ec3227c7edf8beaaa0e3dd419
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
   SwiftyBeaver: 91057725648ee4980308f1650af077d04b3654a0
 
-PODFILE CHECKSUM: f50425b46283abc7298d19e2f41b486aeea0e212
+PODFILE CHECKSUM: ba7e233cc251990aeff1b39975986633444389cd
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.0

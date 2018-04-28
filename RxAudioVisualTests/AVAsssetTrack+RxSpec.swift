@@ -16,32 +16,21 @@ class AVAssetTrackSpec: QuickSpec {
 
       let waitForTrack = {
         if track == nil {
-          asset.rx.tracks.subscribe(onSuccess: { tracks in track = tracks.first }).addDisposableTo(disposeBag)
+          asset.rx.tracks.subscribe(onSuccess: { tracks in track = tracks.first }).disposed(by: disposeBag)
           expect(track).toEventuallyNot(beNil())
         }
       }
 
       beforeEach {
-        let path = Bundle(for: AVAssetTrackSpec.self).path(forResource: "sample", ofType: "mov")
-        let url = URL(string: path!)
-        asset = AVAsset(url: url!)
+        asset = AVAsset(url: TestHelper.sampleURL)
         disposeBag = DisposeBag()
       }
-
-      // it("should eventually load mediaType") {
-      //   waitForTrack()
-      //
-      //   var e: String?
-      //   track?.rx.mediaType.subscribe(onSuccess: { v in e = v }).addDisposableTo(disposeBag)
-      //   expect(e).toEventuallyNot(beNil())
-      //   expect(e).toEventuallyNot(beEmpty())
-      // }
 
       it("should eventually load playable") {
         waitForTrack()
 
         var e: Bool?
-        track?.rx.playable.subscribe(onSuccess: { v in e = v }).addDisposableTo(disposeBag)
+        track?.rx.playable.subscribe(onSuccess: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventuallyNot(beFalse())
       }
@@ -50,17 +39,16 @@ class AVAssetTrackSpec: QuickSpec {
         waitForTrack()
 
         var e: Bool?
-        track?.rx.enabled.subscribe(onSuccess: { v in e = v }).addDisposableTo(disposeBag)
-        // FIXME: always fails
-        expect(e).toEventually(beNil())
-        expect(e).toEventuallyNot(beTrue())
+        track?.rx.enabled.subscribe(onSuccess: { v in e = v }).disposed(by: disposeBag)
+        expect(e).toEventuallyNot(beNil())
+        expect(e).toEventually(beTrue())
       }
 
       it("should eventually load selfContained") {
         waitForTrack()
 
         var e: Bool?
-        track?.rx.selfContained.subscribe(onSuccess: { v in e = v }).addDisposableTo(disposeBag)
+        track?.rx.selfContained.subscribe(onSuccess: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventuallyNot(beFalse())
       }
@@ -69,7 +57,7 @@ class AVAssetTrackSpec: QuickSpec {
         waitForTrack()
 
         var e: Int64?
-        track?.rx.totalSampleDataLength.subscribe(onSuccess: { v in e = v }).addDisposableTo(disposeBag)
+        track?.rx.totalSampleDataLength.subscribe(onSuccess: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventuallyNot(equal(0))
       }
@@ -78,7 +66,7 @@ class AVAssetTrackSpec: QuickSpec {
         waitForTrack()
 
         var e: CMTimeRange?
-        track?.rx.timeRange.subscribe(onSuccess: { v in e = v }).addDisposableTo(disposeBag)
+        track?.rx.timeRange.subscribe(onSuccess: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
       }
 
@@ -86,7 +74,7 @@ class AVAssetTrackSpec: QuickSpec {
         waitForTrack()
 
         var e: CMTimeScale?
-        track?.rx.naturalTimeScale.subscribe(onSuccess: { v in e = v }).addDisposableTo(disposeBag)
+        track?.rx.naturalTimeScale.subscribe(onSuccess: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventuallyNot(equal(0))
       }
@@ -95,7 +83,7 @@ class AVAssetTrackSpec: QuickSpec {
         waitForTrack()
 
         var e: Float?
-        track?.rx.estimatedDataRate.subscribe(onSuccess: { v in e = v }).addDisposableTo(disposeBag)
+        track?.rx.estimatedDataRate.subscribe(onSuccess: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventuallyNot(equal(0.0))
       }
@@ -104,7 +92,7 @@ class AVAssetTrackSpec: QuickSpec {
         waitForTrack()
 
         var e: CGSize?
-        track?.rx.naturalSize.subscribe(onSuccess: { v in e = v }).addDisposableTo(disposeBag)
+        track?.rx.naturalSize.subscribe(onSuccess: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventuallyNot(equal(CGSize.zero))
       }
@@ -113,16 +101,16 @@ class AVAssetTrackSpec: QuickSpec {
         waitForTrack()
 
         var e: CGAffineTransform?
-        track?.rx.preferredTransform.subscribe(onSuccess: { v in e = v }).addDisposableTo(disposeBag)
+        track?.rx.preferredTransform.subscribe(onSuccess: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
-        expect(e).toEventuallyNot(equal(CGAffineTransform.identity))
+        expect(e).toEventually(equal(.identity))
       }
 
       it("should eventually load preferredVolume") {
         waitForTrack()
 
         var e: Float?
-        track?.rx.preferredVolume.subscribe(onSuccess: { v in e = v }).addDisposableTo(disposeBag)
+        track?.rx.preferredVolume.subscribe(onSuccess: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventuallyNot(equal(0.0))
       }
@@ -131,7 +119,7 @@ class AVAssetTrackSpec: QuickSpec {
         waitForTrack()
 
         var e: Float?
-        track?.rx.nominalFrameRate.subscribe(onSuccess: { v in e = v }).addDisposableTo(disposeBag)
+        track?.rx.nominalFrameRate.subscribe(onSuccess: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventuallyNot(equal(0.0))
       }

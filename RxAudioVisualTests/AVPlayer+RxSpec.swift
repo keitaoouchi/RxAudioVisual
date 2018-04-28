@@ -14,31 +14,30 @@ class AVPlayerSpec: QuickSpec {
       var disposeBag: DisposeBag!
 
       beforeEach {
-        let path = Bundle(for: AVPlayerSpec.self).path(forResource: "sample", ofType: "mov")
-        let url = URL(string: path!)
-        player = AVPlayer(url: url!)
+        player = AVPlayer(url: TestHelper.sampleURL)
         disposeBag = DisposeBag()
       }
 
       it("should load status") {
         var e: AVPlayerStatus?
-        player.rx.status.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        player.rx.status.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventually(equal(AVPlayerStatus.readyToPlay))
       }
 
       it("should load timeControlStatus") {
+        player.pause()
         var e: AVPlayerTimeControlStatus?
-        player.rx.timeControlStatus.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        player.rx.timeControlStatus.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventually(equal(AVPlayerTimeControlStatus.paused))
         player.play()
-        expect(e).toEventually(equal(AVPlayerTimeControlStatus.waitingToPlayAtSpecifiedRate))
+        expect(e).toEventually(equal(AVPlayerTimeControlStatus.playing))
       }
 
       it("should load rate") {
         var e: Float?
-        player.rx.rate.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        player.rx.rate.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventually(equal(0.0))
         player.rate = 1.0
@@ -47,20 +46,20 @@ class AVPlayerSpec: QuickSpec {
 
       it("should load currentItem") {
         var e: AVPlayerItem?
-        player.rx.currentItem.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        player.rx.currentItem.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
       }
 
       it("should load actionAtItemEnd") {
         var e: AVPlayerActionAtItemEnd?
-        player.rx.actionAtItemEnd.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        player.rx.actionAtItemEnd.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventually(equal(AVPlayerActionAtItemEnd.pause))
       }
 
       it("should load volume") {
         var e: Float?
-        player.rx.volume.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        player.rx.volume.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventually(equal(1.0))
         player.volume = 0.0
@@ -69,7 +68,7 @@ class AVPlayerSpec: QuickSpec {
 
       it("should load muted") {
         var e: Bool?
-        player.rx.muted.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        player.rx.muted.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventually(beFalse())
         player.isMuted = true
@@ -78,28 +77,28 @@ class AVPlayerSpec: QuickSpec {
 
       it("should load closedCaptionDisplayEnabled") {
         var e: Bool?
-        player.rx.closedCaptionDisplayEnabled.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        player.rx.closedCaptionDisplayEnabled.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventually(beFalse())
       }
 
       it("should load allowsExternalPlayback") {
         var e: Bool?
-        player.rx.allowsExternalPlayback.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        player.rx.allowsExternalPlayback.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventually(beTrue())
       }
 
       it("should load externalPlaybackActive") {
         var e: Bool?
-        player.rx.externalPlaybackActive.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        player.rx.externalPlaybackActive.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventually(beFalse())
       }
 
       it("should load usesExternalPlaybackWhileExternalScreenIsActive") {
         var e: Bool?
-        player.rx.usesExternalPlaybackWhileExternalScreenIsActive.subscribe(onNext: { v in e = v }).addDisposableTo(disposeBag)
+        player.rx.usesExternalPlaybackWhileExternalScreenIsActive.subscribe(onNext: { v in e = v }).disposed(by: disposeBag)
         expect(e).toEventuallyNot(beNil())
         expect(e).toEventually(beFalse())
       }
