@@ -35,9 +35,9 @@ extension Reactive where Base: AVPlayerItem {
     ).map { $0 ?? kCMTimeZero }
   }
 
-  public var status: Observable<AVPlayerItemStatus> {
+    public var status: Observable<AVPlayerItem.Status> {
     return self.observe(
-      AVPlayerItemStatus.self, #keyPath(AVPlayerItem.status)
+        AVPlayerItem.Status.self, #keyPath(AVPlayerItem.status)
     ).map { $0 ?? .unknown }
   }
 
@@ -104,7 +104,7 @@ extension Reactive where Base: AVPlayerItem {
     return NotificationCenter
       .default
       .rx
-      .notification(.AVPlayerItemTimeJumped, object: base)
+      .notification(AVPlayerItem.timeJumpedNotification, object: base)
       .filter { notification in
         if let obj = notification.object as? Base, obj == self.base {
           return true
