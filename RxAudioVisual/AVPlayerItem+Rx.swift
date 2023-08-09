@@ -14,7 +14,7 @@ extension Reactive where Base: AVPlayerItem {
   public var duration: Observable<CMTime> {
     return self.observe(
       CMTime.self, #keyPath(AVPlayerItem.duration)
-    ).map { $0 ?? CMTime.zero }
+    ).map { $0 ?? kCMTimeZero }
   }
 
   public var error: Observable<NSError?> {
@@ -32,7 +32,7 @@ extension Reactive where Base: AVPlayerItem {
   public var presentationSize: Observable<CMTime> {
     return self.observe(
       CMTime.self, #keyPath(AVPlayerItem.presentationSize)
-    ).map { $0 ?? CMTime.zero }
+    ).map { $0 ?? kCMTimeZero }
   }
 
     public var status: Observable<AVPlayerItem.Status> {
