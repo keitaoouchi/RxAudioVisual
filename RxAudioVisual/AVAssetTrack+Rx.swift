@@ -74,7 +74,7 @@ extension Reactive where Base: AVAssetTrack {
         if loaded {
           return self.base.timeRange
         } else {
-            return kCMTimeRangeZero
+            return CMTimeRange.zero
         }
       })
   }

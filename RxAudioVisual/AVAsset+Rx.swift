@@ -10,7 +10,7 @@ extension Reactive where Base: AVAsset {
         if loaded {
           return self.base.duration
         } else {
-            return kCMTimeZero
+            return CMTime.zero
         }
       })
   }
